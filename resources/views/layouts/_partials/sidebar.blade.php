@@ -11,6 +11,11 @@
         </a>
     </li>
     <li>
+        <a href="{{ route('admin.category.index') }}" class="nav-link">
+            <i class="fas fa-list"></i><span>Category</span>
+        </a>
+    </li>
+    <li>
         <a href="{{ route('admin.portfolio.index') }}" class="nav-link">
             <i class="fas fa-briefcase"></i><span>Portfolio</span>
         </a>

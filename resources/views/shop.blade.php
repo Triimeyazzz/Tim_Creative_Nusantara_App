@@ -88,42 +88,39 @@
     <section class="text-center">
         <div class="teks-1">MERCH</div>
     </section>
-    <section class="text-center">
-        <div class="teks-1">GAABIISAAAAAAAAA</div>
-    </section>
     <section class="kedua">
         <div class="container">
             <div class="row g-4">
                 <div class="col-md-4">
-                    <div class="card d-flex gap-1">
-                        <img src="{{ asset('/img/gambar1.jpg') }}" class="card-img-top" alt="belum tau">
+                    <div class="card d-flex border-0">
+                        <img src="{{ asset('/img/gambar1.jpg') }}" class="w-100 rounded" alt="belum tau">
                         <div class="card-body" style="border: 0px;">
-                            <h5 class="card-title">PROJECT ONE</h5>
+                            <h5 class="card-title fw-bold">PROJECT ONE</h5>
                             <p class="card-text">A set of 130 elements, perfectly<br>
                                 fitting each other. Click, drag</p>
-                            <a href="#" class="btn btn-primary">VIEW FULL PROJECT</a>
+                            <a href="#" class="text-decoration-none">VIEW FULL PROJECT</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card d-flex gap-1">
-                        <img src="{{ asset('/img/gambar1.jpg') }}" class="card-img-top" alt="belum tau">
+                    <div class="card d-flex border-0">
+                        <img src="{{ asset('/img/gambar1.jpg') }}" class="w-100 rounded" alt="belum tau">
                         <div class="card-body" style="border: 0px;">
-                            <h5 class="card-title">PROJECT TWO</h5>
+                            <h5 class="card-title fw-bold">PROJECT TWO</h5>
                             <p class="card-text">An excellent way of preparing a<br>
                                 project’s wireframe</p>
-                            <a href="#" class="btn btn-primary">VIEW FULL PROJECT</a>
+                            <a href="#" class="text-decoration-none">VIEW FULL PROJECT</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card d-flex gap-1">
-                        <img src="{{ asset('/img/gambar1.jpg') }}" class="card-img-top" alt="belum tau">
+                    <div class="card d-flex border-0">
+                        <img src="{{ asset('/img/gambar1.jpg') }}" class="w-100 rounded" alt="belum tau">
                         <div class="card-body" style="border: 0px;">
-                            <h5 class="card-title">PROJECT THREE</h5>
+                            <h5 class="card-title fw-bold">PROJECT THREE</h5>
                             <p class="card-text">A whole lot of inspiration you can get<br>
                                 from the vast variety of combinations</p>
-                            <a href="#" class="btn btn-primary">VIEW FULL PROJECT</a>
+                            <a href="#" class="text-decoration-none">VIEW FULL PROJECT</a>
                         </div>
                     </div>
                 </div>

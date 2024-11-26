@@ -11,18 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('our_team', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->text('description');
-            $table->timestamps();
+        Schema::table('our_team', function (Blueprint $table) {
+            $table->string(column: 'job')->nullable();
         });
     }
+
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('our_team');
+        Schema::table('our_team', function (Blueprint $table) {
+            $table->dropColumn('job');
+        });
     }
 };

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Manage;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Portfolio;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,7 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-        $portfolios = Portfolio::all();
+        $portfolios = Portfolio::with('category')->get();
         return view('portfolio.index', compact('portfolios'));
     }
 
@@ -22,7 +23,8 @@ class PortfolioController extends Controller
      */
     public function create()
     {
-        return view('portfolio.create');
+        $categories = Category::all();
+        return view('portfolio.create', compact('categories'));
     }
 
     /**
@@ -39,12 +41,12 @@ class PortfolioController extends Controller
 
         Portfolio::create([
             'title' => $request->title,
-            'category' => $request->category,
+            'category_id' => $request->category,
             'description' => $request->description,
             'date' => $request->date,
         ]);
 
-        return redirect()->route('portfolio.index')->with('success', 'Portfolio created successfully');
+        return redirect()->route('admin.portfolio.index')->with('success', 'Portfolio created successfully');
     }
 
     /**
@@ -61,8 +63,9 @@ class PortfolioController extends Controller
      */
     public function edit(string $id)
     {
+        $categories = Category::all();
         $portfolio = Portfolio::findOrFail($id);
-        return view('portfolio.edit', compact('portfolio'));
+        return view('portfolio.edit', compact('portfolio', 'categories'));
     }
 
     /**
@@ -80,12 +83,12 @@ class PortfolioController extends Controller
         $portfolio = Portfolio::findOrFail($id);
         $portfolio->update([
             'title' => $request->title,
-            'category' => $request->category,
+            'category_id' => $request->category,
             'description' => $request->description,
             'date' => $request->date,
         ]);
 
-        return redirect()->route('portfolio.index')->with('success', 'Portfolio updated successfully');
+        return redirect()->route('admin.portfolio.index')->with('success', 'Portfolio updated successfully');
     }
 
     /**
@@ -96,6 +99,6 @@ class PortfolioController extends Controller
         $portfolio = Portfolio::findOrFail($id);
         $portfolio->delete();
 
-        return redirect()->route('portfolio.index')->with('success', 'Portfolio deleted successfully');
+        return redirect()->route('admin.portfolio.index')->with('success', 'Portfolio deleted successfully');
     }
 }

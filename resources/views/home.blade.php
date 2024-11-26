@@ -45,8 +45,6 @@
 
           .navbar-color {
               background: rgb(255, 255, 255);
-              padding-top: 30px;
-              padding-bottom: 30px;
           }
 
           .jumbotron {
@@ -55,7 +53,7 @@
               position: relative;
               font-family: 'Helvetica', 'Arial', sans-serif;
               font-weight: bold;
-              padding-top: 160px;
+              padding-top: 140px;
               padding-bottom: 25px;
           }
 
@@ -73,7 +71,6 @@
           .container-icon {
               display: flex;
               align-items: center;
-              gap: 50px;
           }
 
           /* Teks */
@@ -85,8 +82,9 @@
               line-height: 1.2;
               text-align: left;
           }
+
           .teks-oren {
-            font-family: 'Poppins', sans-serif;
+              font-family: 'Poppins', sans-serif;
               font-weight: 800;
               font-size: 50px;
               line-height: 1.2;
@@ -108,15 +106,16 @@
 
           /* Lingkaran Ikon */
           .icon-circle {
-              width: 140px;
-              height: 140px;
+              width: 100px;
+              height: 100px;
               background-color: #ff5f07;
               border-radius: 50%;
               display: flex;
               justify-content: center;
               align-items: center;
-              margin-top: 90px;
+              margin-top: -20px;
           }
+
           .icon-circle-1 {
               width: 100px;
               height: 100px;
@@ -128,6 +127,7 @@
               margin-top: 10px;
 
           }
+
           .icon-circle-2 {
               width: 140px;
               height: 140px;
@@ -138,6 +138,7 @@
               align-items: center;
               margin-top: 90px;
           }
+
           .portofolio {
               padding-bottom: 10px;
           }
@@ -149,18 +150,24 @@
               font-weight: bold;
               transform: rotate(45deg);
           }
+
           .icon-arrow-1 {
               font-size: 90px;
               color: #000000;
               font-weight: bold;
               transform: rotate(45deg);
           }
+
           .icon-arrow-2 {
-              font-size: 90px;
+              font-size: 180px;
               color: #ffffff;
               font-weight: bold;
-              transform: rotate(45deg);
+              line-height: 0;
+              margin-top: 130px;
+              font-style: italic;
+              margin-right: 26px;
           }
+
           /* Custom highlight color */
           .highlight-orange {
               color: #ff5f07;
@@ -221,10 +228,10 @@
               font-style: normal;
           }
 
-          .container {
-              max-width: 1200px;
-              padding: 20px;
+          .project{
+            padding-bottom: 60px;
           }
+
 
           .project-title {
               font-size: 28px;
@@ -253,44 +260,52 @@
               height: 360px;
               object-fit: cover;
           }
+
           .teks5 {
-            font-size: 20px;
-            font-weight: 700;
-            color: black;
+              font-size: 20px;
+              font-weight: 700;
+              color: black;
           }
+
           .oren {
-            background-color: #ff5f07;
+              background-color: #ff5f07;
           }
+
           .teks6 {
-            color: white;
+              color: white;
           }
+
           .hitam {
-            background-color: black;
+              background-color: black;
           }
+
           .tekshitam-1 {
-            color: #ffffff;
-            font-size: 25px;
-            padding-top: 80px;
-            padding-bottom: 10px;
+              color: #ffffff;
+              font-size: 25px;
+              padding-top: 80px;
+              padding-bottom: 10px;
           }
+
           .tekshitam-2 {
-            color: #ffffff;
-            font-size: 100px;
-            font-weight: 700;
-            padding-bottom: 10px;
+              color: #ffffff;
+              font-size: 100px;
+              font-weight: 700;
+              padding-bottom: 10px;
           }
+
           .tekshitam-3 {
-            color: #ffffff;
-            font-size: 20px;
+              color: #ffffff;
+              font-size: 20px;
           }
       </style>
   </head>
 
   <body>
       <nav class="navbar navbar-color navbar-expand-lg fixed-top">
-          <div class="container">
-              <a class="navbar-brand" href="#"><img src="{{ asset('/img/logo-tim-hitam.png') }}"
-                      width="100px"></a>
+          <div class="container border-bottom py-3" style="border-color: #000 !important; border-width: 2px !important;">
+
+              <a class="navbar-brand" href="#"><img src="{{ asset('img/logo-tim-hitam.png') }}"
+                      width="80px"></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                   data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                   aria-label="Toggle navigation">
@@ -299,7 +314,7 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                       <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="home">ABOUT</a>
+                          <a class="nav-link" aria-current="page" href="/about">ABOUT</a>
                       </li>
                       <li class="nav-item">
                           <a class="nav-link" href="#">SERVICES</a>
@@ -320,13 +335,19 @@
 
       <section class="jumbotron poppins-extrabold">
           <div class="container position-relative">
-              <div class="container-icon">
-                  <h1 class="teks border-bottom border-2 border-black" data-aos="fade-right">
-                      EVERY PIXELS<br>
-                      TELLS A STORY
-                  </h1>
-                  <div class="icon-circle">
-                      <div class="icon-arrow fa-solid fa-arrow-down-right"></div>
+              <div class="row justify-content-center">
+                  <div class="col-md-11 border-bottom border-2 border-black">
+                      <h1 style="font-size: 120px !important;" class="teks-jumbotron" data-aos="fade-right">
+                          EVERY PIXELS
+                      </h1>
+                      <div class="d-flex gap-4 align-items-center" style="margin-top: -60px">
+                          <div class="icon-circle">
+                              <div class="icon-arrow fa-solid fa-arrow-down-right"></div>
+                          </div>
+                          <h1 style="font-size: 120px !important;" class="teks-jumbotron" data-aos="fade-right">
+                              TELLS A STORY
+                          </h1>
+                      </div>
                   </div>
               </div>
           </div>
@@ -344,8 +365,8 @@
       </section>
       <section class="know-more">
           <div class="container">
-              <div class="row">
-                  <div class="col">
+              <div class="row border-bottom mb-3" style="border-color: black !important; border-width: 2px !important">
+                  <div class="col-md-4">
                       <!-- Subtitle -->
                       <p class="text-uppercase fw-semibold text-dark mb-1" style="font-size: 1.5rem;">Know More About Us
                       </p>
@@ -361,7 +382,9 @@
                       </h2>
 
                       <!-- Description with highlights -->
-                      <p class="border-bottom border-black pb-3" style="font-size: 1.5rem;">
+                  </div>
+                  <div class="col-md-8">
+                      <p class="" style="font-size: 1.5rem;">
                           TIM CREATIVE is a dynamic production and post-production <br> house, dedicated to transforming
                           <span class="highlight-orange">CREATIVE IDEAS</span> into visual <br> and audio content also
                           end-to-end services that cover <br>
@@ -381,8 +404,8 @@
                           <p class="text-thigs text-white fw-bold m-0 ms-5">FOR YOU
                           </p>
                           <div class="icon-circle-1">
-                            <div class="icon-arrow-1">➔</div>
-                        </div>
+                              <div class="icon-arrow-1">➔</div>
+                          </div>
                       </div>
                   </div>
               </div>
@@ -410,101 +433,106 @@
           </div>
       </section>
       <section class="project">
-      <div class="container">
-          <h1 class="teks4">PROJECTS</h1>
-          <div class="row g-4">
-              <div class="col-md-6">
-                  <img src="{{ asset('/img/gambar1.jpg') }}" alt="ERHA Age Corrector" class="w-100 rounded-project">
-              </div>
-              <div class="col-md-6">
-                  <h5 class="project-title">PRODUCTION</h5>
-                  <div class="project-subtitle mb-4">ERHA AGE CORRECTOR</div>
-                  <div class="mb-4">The Video Campaign aimed to provide solution by showcasing a high quality product
-                      and demonstrating its effectiveness after.</div>
-                  <div class="project-subtitle2 mb-0">COVERAGE</div>
-                  <div class="">Production - Post Production</div>
-              </div>
-              <div class="col-md-6">
-                  <img src="{{ asset('/img/gambar1.jpg') }}" alt="ERHA Age Corrector" class="w-100 rounded-project">
-                  <div class="project-content mt-4">
-                      <div class="project-title">Post Production</div>
-                      <div class="project-description">Product Launching</div>
+          <div class="container">
+              <h1 class="teks4">PROJECTS</h1>
+              <div class="row g-4">
+                  <div class="col-md-6">
+                      <img src="{{ asset('/img/gambar1.jpg') }}" alt="ERHA Age Corrector"
+                          class="w-100 rounded-project">
+                  </div>
+                  <div class="col-md-6">
+                      <h5 class="project-title">PRODUCTION</h5>
+                      <div class="project-subtitle mb-4">ERHA AGE CORRECTOR</div>
+                      <div class="mb-4">The Video Campaign aimed to provide solution by showcasing a high quality
+                          product
+                          and demonstrating its effectiveness after.</div>
+                      <div class="project-subtitle2 mb-0">COVERAGE</div>
+                      <div class="">Production - Post Production</div>
+                  </div>
+                  <div class="col-md-6">
+                      <img src="{{ asset('/img/gambar1.jpg') }}" alt="ERHA Age Corrector"
+                          class="w-100 rounded-project">
+                      <div class="project-content mt-4">
+                          <div class="project-title">Post Production</div>
+                          <div class="project-description">Product Launching</div>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <img src="{{ asset('/img/gambar1.jpg') }}" alt="ERHA Age Corrector"
+                          class="w-100 rounded-project">
+                      <div class="project-content mt-4">
+                          <div class="project-title">Post Production</div>
+                          <div class="project-description">Digital Ads</div>
+                      </div>
                   </div>
               </div>
-              <div class="col-md-6">
-                  <img src="{{ asset('/img/gambar1.jpg') }}" alt="ERHA Age Corrector" class="w-100 rounded-project">
-                  <div class="project-content mt-4">
-                      <div class="project-title">Post Production</div>
-                      <div class="project-description">Digital Ads</div>
+              <hr>
+              <h5 class="teks5">2023.</h5>
+          </div>
+      </section>
+      <section class="oren">
+          <div class="container">
+              <div class="row g-4">
+                  <div class="col-md-2">
+                      <div class="icon-circle-2">
+                          <div class="icon-arrow-2">"</div>
+                      </div>
+                  </div>
+                  <div class="col-md-10">
+                      <h1 class="teks-oren border-bottom border-1 border-white" data-aos="fade-right">
+                          DELIVER ALWAYS THE BEST QUALITY<br>
+                          WITH ENDLESS ITERATION.<br>
+                          GOOD JOB!
+                      </h1>
+                  </div>
+              </div>
+              <div class="row g-4 teks6">
+                  <div class="col-md-2" style="padding-bottom: 40px;">
+                      DESMOND ALEX
+                  </div>
+                  <div class="col-md-10" style="padding-bottom: 80px;">
+                      CREATIVE HEAD OF SHAMBALA
                   </div>
               </div>
           </div>
-      </div>
-      <div class="container">
-        <h5 class="teks5">2023.</h5>
-      </div>
-      </section>
-      <section class="oren">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-2">
-                    <div class="icon-circle-2">
-                        <div class="icon-arrow-2">"</div>
-                    </div>
-                </div>
-                <div class="col-md-10">
-                    <h1 class="teks-oren border-bottom border-1 border-white" data-aos="fade-right">
-                        DELIVER ALWAYS THE BEST QUALITY<br>
-                        WITH ENDLESS ITERATION.<br>
-                        GOOD JOB!
-                    </h1>
-                </div>
-            </div>
-            <div class="row g-4 teks6">
-                <div class="col-md-2" style="padding-bottom: 40px;">
-                    DESMOND ALEX
-                </div>
-                <div class="col-md-10" style="padding-bottom: 80px;">
-                    CREATIVE HEAD OF SHAMBALA
-                </div>
-            </div>
-        </div>
       </section>
       <section class="hitam">
-        <div class="container">
-                <div class="tekshitam-1 text-center">
-                    HAVE SOMETHING IN MIND?
-                </div>
-                <div class="tekshitam-2 text-center">
-                    GET CONNECTED
-                </div>
-                <div class="tekshitam-3 text-center">
-                    <a href="" class="btn bg-cu rounded-pill">CONTACT US</a>
-                </div>
-                <h1 class="teks-oren border-bottom border-1 border-white"></h1>
-                <a class="navbar-brand" href="#"><img src="{{ asset('/img/logo-tim1.png') }}"
-                    width="100px"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
+          <div class="container">
+              <div class="tekshitam-1 text-center">
+                  HAVE SOMETHING IN MIND?
+              </div>
+              <div class="tekshitam-2 text-center">
+                  GET CONNECTED
+              </div>
+              <div class="tekshitam-3 text-center">
+                  <a href="" class="btn bg-cu rounded-pill">CONTACT US</a>
+              </div>
+              <h1 class="teks-oren border-bottom border-1 border-white"></h1>
+              <div class="pb-3">
+                  <a class="navbar-brand" href="#"><img src="{{ asset('/img/logo-tim1.png') }}"
+                          width="100px"></a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                      aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                  </button>
+              </div>
+          </div>
       </section>
-          
-          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-              integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-          </script>
-          <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-              integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
-          </script>
-          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-              integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
-          </script>
-          <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-          <script>
-              AOS.init();
-          </script>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+      </script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+          integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+      </script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+          integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
+      </script>
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      <script>
+          AOS.init();
+      </script>
   </body>
 
   </html>

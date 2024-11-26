@@ -1,19 +1,21 @@
 CATATAN GAISSSS
 
+Menggunakan :
+- Laravel 11.0
+- Php 8.2
+- Composer 2.8.1
 
+Tools :
+- Laragon (web server)
+- SQLite (database)
+- TablePlus (database viewer)
+- GitBash, Composer (run command)
 
-
-
-
-
-
-
-
-
-
-
-
-
+Jumlah Table ada (4)
+- portfolio
+- gallery_portfolio
+- our_team
+- sosmed
 
 
 

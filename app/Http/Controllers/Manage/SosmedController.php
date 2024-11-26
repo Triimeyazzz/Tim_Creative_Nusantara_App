@@ -44,7 +44,7 @@ class SosmedController extends Controller
             'url' => $request->url,
         ]);
 
-        return redirect()->route('sosmed.index')->with('success', 'Sosmed created successfully');
+        return redirect()->route('admin.sosmed.index')->with('success', 'Sosmed created successfully');
     }
 
     /**
@@ -83,8 +83,9 @@ class SosmedController extends Controller
             'sosmed' => $request->sosmed,
             'url' => $request->url,
         ]);
+        // dd($bisakah);
 
-        return redirect()->route('sosmed.index')->with('success', 'Sosmed updated successfully');
+        return redirect()->route('admin.sosmed.index')->with('success', 'Sosmed updated successfully');
     }
 
     /**
@@ -95,6 +96,6 @@ class SosmedController extends Controller
         $sosmed = Sosmed::findOrFail($id);
         $sosmed->delete();
 
-        return redirect()->route('sosmed.index')->with('success', 'Sosmed deleted successfully');
+        return redirect()->route('admin.sosmed.index')->with('success', 'Sosmed deleted successfully');
     }
 }

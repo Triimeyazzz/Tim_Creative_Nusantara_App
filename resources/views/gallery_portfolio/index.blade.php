@@ -3,15 +3,15 @@
 @section('content')
 <section class="section">
     <div class="section-header">
-        <h1>Our Team</h1>
+        <h1>Gallery Portfolio</h1>
     </div>
 
     <div class="section-body">
         <div class="card">
             <div class="card-header">
-                <h4>Team Members</h4>
+                <h4>Portfolio List</h4>
                 <div class="card-header-action">
-                    <a href="{{ route('admin.our_team.create') }}" class="btn btn-primary">Add New Member</a>
+                    <a href="{{ route('admin.gallery_portfolio.create') }}" class="btn btn-primary">Add New Member</a>
                 </div>
             </div>
             <div class="card-body">
@@ -19,25 +19,27 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>Job</th>
+                                <th>No</th>
+                                <th>Portfolio</th>
                                 <th>Description</th>
+                                <th>Image</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($teams as $team)
+                            @foreach($portfolios as $portfolio)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $team->name }}</td>
-                                <td>{{ $team->job }}</td>
-                                <td>{{ $team->description }}</td>
+                                <td>{{ $portfolio->portfolio->title }}</td>
+                                <td>{{ $portfolio->description }}</td>
                                 <td>
-                                    <a href="{{ route('admin.our_team.edit', $team->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                                    <form action="{{ route('admin.our_team.destroy', $team->id) }}" method="POST" style="display: inline-block;">
+                                    <img src="{{ asset('storage/' . $portfolio->image_path) }}" alt="Portfolio Image" class="img-thumbnail" width="100">
+                                </td>
+                                <td>
+                                    <form class="d-flex" action="{{ route('admin.gallery_portfolio.destroy', $portfolio->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
+                                        <a href="{{ route('admin.gallery_portfolio.edit', $portfolio->id) }}" class="btn btn-warning btn-sm mr-1">Edit</a>
                                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
                                     </form>
                                 </td>

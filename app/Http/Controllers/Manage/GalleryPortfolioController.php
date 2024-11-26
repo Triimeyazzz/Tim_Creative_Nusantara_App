@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Manage;
 
 use App\Http\Controllers\Controller;
 use App\Models\Gallery_Portfolio;
+use App\Models\Portfolio;
 use Illuminate\Http\Request;
 
 class GalleryPortfolioController extends Controller
@@ -13,7 +14,7 @@ class GalleryPortfolioController extends Controller
      */
     public function index()
     {
-        $portfolios = Gallery_Portfolio::all();
+        $portfolios = Gallery_Portfolio::with('portfolio')->get();
         return view('gallery_portfolio.index', compact('portfolios'));
     }
 
@@ -22,7 +23,8 @@ class GalleryPortfolioController extends Controller
      */
     public function create()
     {
-        return view('gallery_portfolio.create');
+        $portfolios = Portfolio::all();
+        return view('gallery_portfolio.create', compact('portfolios'));
     }
 
     /**
@@ -31,20 +33,20 @@ class GalleryPortfolioController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|string|max:255',
+            'portfolio_id' => 'required|exists:portfolio,id',
             'description' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif',
         ]);
 
         $imagePath = $request->file('image')->store('gallery', 'public');
 
         Gallery_Portfolio::create([
-            'title' => $request->title,
+            'portfolio_id' => $request->portfolio_id,
             'description' => $request->description,
-            'image' => $imagePath,
+            'image_path' => $imagePath,
         ]);
 
-        return redirect()->route('gallery_portfolio.index')->with('success', 'Portfolio created successfully.');
+        return redirect()->route('admin.gallery_portfolio.index')->with('success', 'Portfolio created successfully.');
     }
 
     /**
@@ -61,8 +63,9 @@ class GalleryPortfolioController extends Controller
      */
     public function edit(string $id)
     {
-        $portfolio = Gallery_Portfolio::findOrFail($id);
-        return view('gallery_portfolio.edit', compact('portfolio'));
+        $gallery = Gallery_Portfolio::findOrFail($id);
+        $portfolios = Portfolio::all();
+        return view('gallery_portfolio.edit', compact('gallery','portfolios'));
     }
 
     /**
@@ -71,7 +74,7 @@ class GalleryPortfolioController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'portfolio_id' => 'required',
             'description' => 'required|string',
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
@@ -79,16 +82,15 @@ class GalleryPortfolioController extends Controller
         $gallery = Gallery_Portfolio::findOrFail($id);
 
         if ($request->hasFile('image')) {
-            $imageName = time() . '.' . $request->image->extension();
-            $request->image->move(public_path('images'), $imageName);
-            $gallery->image = $imageName;
+            $imagePath = $request->file('image')->store('gallery', 'public');
+            $gallery->image_path = $imagePath;
         }
 
-        $gallery->name = $request->name;
+        $gallery->portfolio_id = $request->portfolio_id;
         $gallery->description = $request->description;
         $gallery->save();
 
-        return redirect()->route('gallery_portfolio.index')->with('success', 'Gallery Portfolio updated successfully.');
+        return redirect()->route('admin.gallery_portfolio.index')->with('success', 'Gallery Portfolio updated successfully.');
     }
 
     /**
@@ -102,6 +104,6 @@ class GalleryPortfolioController extends Controller
         }
         $gallery->delete();
 
-        return redirect()->route('gallery_portfolio.index')->with('success', 'Gallery Portfolio deleted successfully.');
+        return redirect()->route('admin.gallery_portfolio.index')->with('success', 'Gallery Portfolio deleted successfully.');
     }
 }

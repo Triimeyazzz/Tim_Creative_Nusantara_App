@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
 <section class="section">
@@ -12,7 +12,7 @@
                 <h4>New Member Form</h4>
             </div>
             <div class="card-body">
-                <form action="{{ route('our_team.store') }}" method="POST">
+                <form action="{{ route('admin.our_team.store') }}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="name">Name</label>

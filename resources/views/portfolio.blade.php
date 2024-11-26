@@ -101,10 +101,14 @@
             justify-content: center;
         }
 
-        .nav-item .active {
+
+        .nav-item .nav-link.active {
             background-color: #ff5f07;
             color: white !important;
             color: #515255;
+        }
+        .nav-item .nav-link:not(.active) {
+            color: black !important;
         }
     </style>
 </head>
@@ -252,71 +256,33 @@
         <div class="teks-1">Our Projects</div>
     </section>
     <section class="keempat">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light p-0 rounded-pill nav-portofolio">
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav gap-4">
-                    <li class="nav-item">
-                        <a class="nav-link rounded-pill px-4 py-2 active" href="#">Design</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link rounded-pill px-4 py-2" href="#">Digital</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link rounded-pill px-4 py-2" href="#">Art</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link rounded-pill px-4 py-2" href="#">Fashion</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link rounded-pill px-4 py-2" href="#">Photography</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            @foreach ($categories as $key => $category)
+            <li class="nav-item" role="presentation">
+                <button class="nav-link rounded-pill px-4 py-2 {{ $key == 0 ? 'active' : '' }}" id="pills-{{ Str::slug($category->name) }}-tab" data-bs-toggle="pill" data-bs-target="#pills-{{ Str::slug($category->name) }}" type="button" role="tab" aria-controls="pills-{{ Str::slug($category->name) }}" aria-selected="true">{{ $category->name }}</button>
+              </li>
+            @endforeach
+          </ul>
     </section>
     <section class="kedua">
         <div class="container">
-            <div class="row g-3">
-                <div class="col-md-3">
-                    <div class="d-flex">
-                        <img src="{{ asset('/img/gambar1.jpg') }}" class="card-img-top" alt="belum tau">
+            <div class="tab-content" id="pills-tabContent">
+                @foreach ($categories as $key => $category)
+                    <div class="tab-pane fade show {{ $key == 0 ? 'active' : '' }}" id="pills-{{ Str::slug($category->name) }}" role="tabpanel" aria-labelledby="pills-{{ Str::slug($category->name) }}-tab" tabindex="0">
+                        <div class="row g-3">
+                            @foreach ($category->portofolios as $portofolio)
+                                @foreach ($portofolio->galleries as $gallery)
+
+                                <div class="col-md-3">
+                                    <div class="d-flex">
+                                        <img src="{{ asset('storage/'.  $gallery->image_path )}}" class="card-img-top" alt="belum tau">
+                                    </div>
+                                </div>
+                                @endforeach
+                            @endforeach
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="d-flex">
-                        <img src="{{ asset('/img/gambar1.jpg') }}" class="card-img-top" alt="belum tau">
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="d-flex">
-                        <img src="{{ asset('/img/gambar1.jpg') }}" class="card-img-top" alt="belum tau">
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="d-flex">
-                        <img src="{{ asset('/img/gambar1.jpg') }}" class="card-img-top" alt="belum tau">
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="d-flex">
-                        <img src="{{ asset('/img/gambar1.jpg') }}" class="card-img-top" alt="belum tau">
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="d-flex">
-                        <img src="{{ asset('/img/gambar1.jpg') }}" class="card-img-top" alt="belum tau">
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="d-flex">
-                        <img src="{{ asset('/img/gambar1.jpg') }}" class="card-img-top" alt="belum tau">
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="d-flex">
-                        <img src="{{ asset('/img/gambar1.jpg') }}" class="card-img-top" alt="belum tau">
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

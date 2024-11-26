@@ -37,13 +37,14 @@ class OurTeamController extends Controller
                 'description' => 'required|string',
             ]);
 
+
             OurTeam::create([
                 'name' => $request->name,
                 'job' => $request->job,
                 'description' => $request->description,
             ]);
 
-            return redirect()->route('our_team.index')->with('success', 'Team member added successfully.');
+            return redirect()->route('admin.our_team.index')->with('success', 'Team member added successfully.');
         }
     }
     /**
@@ -83,7 +84,7 @@ class OurTeamController extends Controller
                 'description' => $request->description,
             ]);
 
-            return redirect()->route('our_team.index')->with('success', 'Team member updated successfully.');
+            return redirect()->route('admin.our_team.index')->with('success', 'Team member updated successfully.');
         }
     }
 
@@ -95,6 +96,6 @@ class OurTeamController extends Controller
         $teamMember = OurTeam::findOrFail($id);
         $teamMember->delete();
 
-        return redirect()->route('our_team.index')->with('success', 'Team member deleted successfully.');
+        return redirect()->route('admin.our_team.index')->with('success', 'Team member deleted successfully.');
     }
 }

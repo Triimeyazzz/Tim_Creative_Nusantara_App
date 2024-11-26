@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
 <section class="section">
@@ -12,7 +12,7 @@
                 <h4>Edit Member Form</h4>
             </div>
             <div class="card-body">
-                <form action="{{ route('our_team.update', $teamMember->id) }}" method="POST">
+                <form action="{{ route('admin.our_team.update', $teamMember->id) }}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
